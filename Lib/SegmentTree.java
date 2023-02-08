@@ -1,4 +1,4 @@
-// Author: MJUNM
+// Author: Jun Wang
 
 package Lib;
 
