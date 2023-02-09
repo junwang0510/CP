@@ -4,7 +4,7 @@ package Lib;
 
 /**
  * For range queries with frequent updates.
- *
+ * <p>
  * build() - O(n)
  * query() - O(log n)
  * update() - O(log n)
@@ -35,16 +35,17 @@ public class SegmentTree {
 
     // helper function for building the tree
     private int buildHelper(int[] arr, int start, int end, int curr) {
-        // At leaf node -> store the value
+        // Base case: At leaf node -> store the value
         if (start == end) {
             tree[curr] = arr[start];
             return arr[start];
         }
 
-        // Not at leaf node -> Recurrence for left and right subtrees
+        // Not at leaf node -> Recursively build left and right subtrees
         int mid = start + (end - start) / 2;
         tree[curr] = buildHelper(arr, start, mid, curr * 2 + 1) +
                 buildHelper(arr, mid + 1, end, curr * 2 + 2);
+
         return tree[curr];
     }
 
@@ -61,7 +62,7 @@ public class SegmentTree {
 
         // Invalid index input
         if (i < 0 || i > n - 1) {
-            throw new IllegalArgumentException("Invalid index input!");
+            throw new IllegalArgumentException("update(): Invalid index");
         }
 
         // Update array and tree
@@ -72,9 +73,10 @@ public class SegmentTree {
 
     // helper function for updating the values in the tree
     private void updateHelper(int start, int end, int i, int diff, int curr) {
-        // base case: Range is outside the segment
+        // Base case: Range is outside the segment
         if (i < start || i > end) return;
 
+        // Recursively update left and right subtrees
         tree[curr] = tree[curr] + diff;
         if (start != end) {
             int mid = start + (end - start) / 2;
@@ -92,8 +94,9 @@ public class SegmentTree {
      * @return the sum of the given range
      */
     int getSum(int n, int start, int end) {
+        // Invalid range inputs
         if (start < 0 || end > n - 1 || start > end) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("getSum(): Invalid range");
         }
 
         return getSumHelper(0, n - 1, start, end, 0);
@@ -114,12 +117,12 @@ public class SegmentTree {
     }
 
 
-    // Tests
+    // Sample Usage
     public static void main(String[] args) {
         int[] arr = {-4, -1, 0, 4, 1, 0, 9, 18};
         int n = arr.length;
         SegmentTree st = new SegmentTree(arr);
-        System.out.println("Sum of values from index 1 to 5 = " + st.getSum(n, 1, 5));
+        System.out.println("Before update: Sum of values from index 1 to 5 = " + st.getSum(n, 1, 5));
         System.out.println("Update: set arr[2] = 11");
         st.update(arr, 2, 11);
         System.out.println("After update: Sum of values from index 1 to 5 = " + st.getSum(n, 1, 5));
