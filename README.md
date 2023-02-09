@@ -1,3 +1,3 @@
 # CP
 
-Personal Competitive Programming Resources
+Java Competitive Programming Resources
