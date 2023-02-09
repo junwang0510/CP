@@ -4,7 +4,7 @@ package Lib;
 
 /**
  * For range queries with frequent updates.
- * <p>
+ * 
  * build() - O(n)
  * query() - O(log n)
  * update() - O(log n)
