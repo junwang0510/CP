@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solve {
+public class Template {
 
     static class Task {
         public void solve(MyScanner sc, PrintWriter out) {
