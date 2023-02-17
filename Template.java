@@ -23,28 +23,6 @@ public class Template {
         out.close();
     }
 
-    // Fast Arithmetic Operations with Long
-    static final int mod = 1_000_000_007;
-
-    static long add(long a, long b) {
-        return (a + b) % mod;
-    }
-
-    static long sub(long a, long b) {
-        return ((a - b) % mod + mod) % mod;
-    }
-
-    static long mul(long a, long b) {
-        return (a * b) % mod;
-    }
-
-    static long exp(long base, long exp) {
-        if (exp == 0) return 1;
-        long half = exp(base, exp / 2);
-        if (exp % 2 == 0) return mul(half, half);
-        return mul(half, mul(half, base));
-    }
-
     static class MyScanner {
         public BufferedReader reader;
         public StringTokenizer tokenizer;
@@ -85,12 +63,6 @@ public class Template {
                 e.printStackTrace();
             }
             return str;
-        }
-
-        int[] readArray(int n) {
-            int[] a = new int[n];
-            for (int i = 0; i < n; i++) a[i] = nextInt();
-            return a;
         }
     }
 }
