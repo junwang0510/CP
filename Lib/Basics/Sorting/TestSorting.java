@@ -2,7 +2,7 @@
 
 package Lib.Basics.Sorting;
 
-public class TestSorting extends SelectionSort { // Change the extended class for different sorting algorithms
+public class TestSorting extends InsertionSort { // Change the extended class for different sorting algorithms
     public static void main(String[] args) {
         int[] arr = {4, -1, 0, 13, 107, -41, -23, 20, 8, -9, 0, 0, 20, 9};
         System.out.println("Before Sorting:");
