@@ -1,0 +1,61 @@
+// Q1: Hungry Cow
+public void solve(MyScanner sc, PrintWriter out) {
+    long N = sc.nextLong();
+    long T = sc.nextLong();
+    long total = 0;
+
+    long prev = sc.nextLong();
+    long currCount = sc.nextLong();
+
+    while (N-- > 1) { // all except the first entries
+        long di = sc.nextLong(); // curr day
+        long bi = sc.nextLong(); // new gain
+
+        long diff = di - prev; // diff from prev day
+        if (currCount <= diff) { // count can't make that far -> exhaust all count
+            total += currCount;
+            currCount = 0;
+        } else { // count more than days
+            total += diff;
+            currCount -= diff;
+        }
+
+        prev = di;
+        currCount += bi;
+    }
+
+    if (currCount == 0) {
+        out.println(total);
+        return;
+    }
+
+    if (prev == T) {
+        total++;
+        out.println(total);
+        return;
+    }
+
+    if (prev < T) { // and count > 0
+        long diff = T - prev + 1;
+        total += Math.min(currCount, diff);
+    }
+
+    out.println(total);
+}
+
+// Q3: Watching Mooloo
+public void solve(MyScanner sc, PrintWriter out) {
+    long N = sc.nextLong(), K = sc.nextLong();
+    long total = 0;
+    long prev = -1;
+    for (long i = 0; i < N; i++) {
+        long n  = sc.nextLong(); // the day she watches
+        if (i == 0) { // first entry -> must subscribe
+            total += K + 1;
+        } else { // better option between 1) restarting (K + 1), 2) continue
+            total += Math.min(n - prev, K + 1);
+        }
+        prev = n;
+    }
+    out.println(total);
+}
