@@ -18,9 +18,8 @@ public class QuickSort extends Swap{
         if (l >= r) return;
         int pivot = arr[l], i = l - 1, j = r + 1;
         while (i < j) {
-            i++; j--;
-            while (arr[i] < pivot) i++;
-            while (arr[j] > pivot) j--;
+            do i++; while (arr[i] < pivot);
+            do j--; while (arr[j] > pivot);
             if (i < j) swap(arr, i, j);
         }
         quicksort(arr, l, j);
