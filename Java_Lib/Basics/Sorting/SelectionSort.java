@@ -1,6 +1,6 @@
 // Author: MJUNM
 
-package Lib.Basics.Sorting;
+package Java_Lib.Basics.Sorting;
 
 /**
  * Runtime: n^2

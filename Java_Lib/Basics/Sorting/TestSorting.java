@@ -1,6 +1,6 @@
 // Author: MJUNM
 
-package Lib.Basics.Sorting;
+package Java_Lib.Basics.Sorting;
 
 public class TestSorting extends InsertionSort { // Change the extended class for different sorting algorithms
     public static void main(String[] args) {

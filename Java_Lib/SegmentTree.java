@@ -1,6 +1,6 @@
 // Author: MJUNM
 
-package Lib;
+package Java_Lib;
 
 /**
  * For range queries with frequent updates.
