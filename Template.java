@@ -24,7 +24,7 @@ public class Template {
             while (!st.hasMoreTokens()) {
                 try {
                     st = new StringTokenizer(br.readLine());
-                } catch (IOException e) {}
+                } catch (IOException ignored) {}
             }
             return st.nextToken();
         }
